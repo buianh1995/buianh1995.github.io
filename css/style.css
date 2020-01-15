@@ -1,6 +1,6 @@
 :root{
     --primary-color: #00cca3;
-    --dark-color: #001a0f;
+    --dark-color: #006652;
 }
 
 *{
@@ -71,7 +71,8 @@ abbr{
 .fa-github:hover {
     background-color: #5a32a3;
 }
-      
+
+/* global */
 img{
     width: 100%;
 }
@@ -107,9 +108,10 @@ p{
     margin: auto;
 }
 
+/* header */
 #main-header{
     background:var(--dark-color);
-    min-height:12rem;
+    min-height: 12rem;
 }
 
 .main-nav{
@@ -165,14 +167,13 @@ p{
 
 .container{
     background: #f2f2f2;
-    padding: 3rem;
+    padding: 2rem;
     border: 1px solid #ccc;
     border-radius: 0.5rem;
-    min-height: 350px; 
+    min-height: 32rem;
+    width: 100%;
 }
-.container a{
-    color: #666;
-}
+
 .home-grid{
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
@@ -253,6 +254,15 @@ p{
     text-transform: uppercase;
 }
 
+.btn:hover{
+    background:#004d3d;
+    -o-transition:.5s;
+    -ms-transition:.5s;
+    -moz-transition:.5s;
+    -webkit-transition:.5s;
+    transition: .5s;
+}
+
 /*box */
 #home-box{
     margin-top: 5rem;
@@ -260,9 +270,19 @@ p{
 .box{
     padding-right: 1rem;
 }
+.box:nth-child(1){
+    grid-area: box1;
+}
+.box:nth-child(2){
+    grid-area: box2;
+}
+.box:nth-child(3){
+    grid-area: box3;
+}
+
 .box-grid{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:"box1 box2 box3";
     grid-gap: 2rem;
 }
 
@@ -318,6 +338,7 @@ p{
     color: #fff;
     border-radius: 2px;
     cursor: pointer;
+	
 }
 
 .tab-item:hover{
@@ -328,10 +349,144 @@ p{
     -webkit-transition:.5s;
     transition: .5s;
 }
+.tab-item:active{
+	transform: scale(0.9);
+}
+.tab-item:focus{
+	outline: none;
+}
 .tab-clicked{
     background: #004d3d;
 }
 .tab-content-item{
     display: none;
     margin-top: 1rem;
+}
+
+
+/* Media screen */
+
+@media only screen and (max-width: 1180px){
+    .bao-vien{
+        width: 90%;
+    }
+}
+
+@media only screen and (max-width:998px){
+	.media-hidden{
+        display: none;
+    }
+   .home-grid{
+       grid-gap: 10rem;
+   }
+}
+
+@media only screen and (max-width:807px){
+    .tab-item{
+        padding: 1rem 2rem;
+    }
+}
+
+
+@media only screen and (max-width:768px){
+    #main-header{
+        min-height: 17rem;
+        text-align: center;
+    }
+    .bao-vien{
+        width: 95%;
+    }
+    .main-nav{
+        float: none;
+        display: inline-block;
+    }
+    
+    .main-nav li{
+        margin-top: 3rem;
+    }
+
+    .main-logo{
+        float: none;
+        display: block;
+        padding-top: 2rem;
+    }
+    .logo-title{
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+    }
+    #main-section{
+        margin-top: 2rem;
+    }
+    .home-grid{
+        display: block;
+    }
+    .media-hidden{
+        display: inline-block;
+        margin-top: 2rem;
+    }
+    .media-center{
+        display: inline-block;
+        margin-top: 2rem;
+    }
+    .image-logo{
+        width: 100%;
+    }
+    .image-logo .profile-pic{
+        margin: 0 auto;
+        display: block;
+    }
+
+    #main-footer p{
+        text-align: center;
+    }
+
+    #home-box{
+        margin-top: 2rem;
+    }
+
+    .box-grid{
+        grid-template-areas:"box1 box2"
+        "box3 box3" ;
+    }
+    .box-grid .box:nth-child(3){
+        width: 50%;
+        margin: 0 auto;
+    }
+    .margin-top{
+        margin-top: 1rem;
+    }
+    .box-grid .box:nth-child(2){
+        border-right: none;
+    }
+    .container{
+        padding: 1rem;
+        min-height: 10rem;
+    }
+    .container .float-left{
+        float: none;
+    }
+    .container ul{
+        margin-bottom: 0;
+        line-height: 1.5;
+    }
+    .profile-pic.media-hidden{
+        display: none;
+        padding: 0;
+        margin: 0;
+    }
+    .skills-tab{
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    .tab-item{
+        padding: 0.5rem 0.8rem;
+    }
+    .tham-khao-boxs{
+        flex-direction: column;
+    }
+    .tham-khao-box{
+        width: 100%;
+        margin-bottom: 1rem;
+    }
 }
